@@ -17433,6 +17433,10 @@ var Html5QrcodeScanner = (function () {
           f.style.textAlign = "center";
           // BUTTON CAMERAR PERMISSION
           var g = document.createElement("button");
+          //Button formaat
+          g.style.height = "200px";
+          g.style.width = "400px";
+          g.style.fontSize = "50px";
           (g.innerHTML = "Request Camera Permissions"),
             g.addEventListener("click", function () {
               (g.disabled = !0),
@@ -17482,6 +17486,9 @@ var Html5QrcodeScanner = (function () {
           //(e.innerHTML = "Select Camera (".concat(b.length, ") &nbsp;")),
           (e.style.marginRight = "10px");
           var f = document.createElement("select");
+          f.style.height = "100px";
+          f.style.width = "200px";
+          f.style.fontSize = "20px";
           // f = menu for camera selection
           //f.style.backgroundColor = "#FF0000";
           f.id = this.__getCameraSelectionId();
@@ -17498,6 +17505,18 @@ var Html5QrcodeScanner = (function () {
           // START & STOP SCANNING button
           (n.innerHTML = "Start Scanning"), m.appendChild(n);
           var o = document.createElement("button");
+
+          n.style.height = "100px";
+          n.style.width = "400px";
+          n.style.fontSize = "50px";
+          n.style.paddingBottom = "20px";
+          o.style.height = "100px";
+          o.style.width = "400px";
+          o.style.fontSize = "50px";
+          o.style.paddingBottom = "20px";
+
+
+
           (o.innerHTML = "Stop Scanning"),
             (o.style.display = "none"),
             (o.disabled = !0),

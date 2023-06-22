@@ -1,25 +1,23 @@
-<script src="js/main.js"></script>
-<style>
-  .result{
-    background-color: green;
-    color:#fff;
-    padding:20px;
-    align-content: center;
-  }
-  .row{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/index.css">
+  <title>Camera and QR Code Scanner</title>
+</head>
 
-  }
-</style>
+<body>
+<header>
+
+</header>
+<script src="js/main.js"></script>
+
 
 
 <div class="row">
   <div class="col">
     <div style="width:800px;" id="reader"></div>
   </div>
-  <div class="col" style="padding:30px;">
+  <div class="score" style="padding:30px;">
     <h4>SCAN RESULT</h4>
     <div id="result">Result Here</div>
   </div>
@@ -40,3 +38,4 @@
   html5QrcodeScanner.render(onScanSuccess, onScanError);
 
 </script>
+</body>
