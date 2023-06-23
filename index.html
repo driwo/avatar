@@ -20,27 +20,39 @@
         var handle = document.querySelector('.slider-handle');
         var isDragging = false;
 
-        handle.addEventListener('mousedown', function(e) {
+        var startEvent = 'mousedown';
+        var moveEvent = 'mousemove';
+        var endEvent = 'mouseup';
+
+        if ('ontouchstart' in window || navigator.msMaxTouchPoints) {
+          startEvent = 'touchstart';
+          moveEvent = 'touchmove';
+          endEvent = 'touchend';
+        }
+
+        handle.addEventListener(startEvent, function(e) {
           isDragging = true;
           handle.style.cursor = 'grabbing';
         });
 
-        handle.addEventListener('mouseup', function(e) {
+        handle.addEventListener(endEvent, function(e) {
           isDragging = false;
           handle.style.cursor = 'grab';
         });
         handle.style.left = slider.offsetWidth - handle.offsetWidth + 80 + 'px';
-        slider.addEventListener('mousemove', function(e) {
+
+        slider.addEventListener(moveEvent, function(e) {
           if (isDragging) {
             var sliderWidth = slider.offsetWidth;
             var handleWidth = handle.offsetWidth;
             var maxX = sliderWidth - handleWidth + 80;
-            var newX = Math.min(Math.max(e.clientX - slider.offsetLeft, 0), maxX);
+            var clientX = e.clientX || e.touches[0].clientX;
+            var newX = Math.min(Math.max(clientX - slider.offsetLeft, 0), maxX);
             handle.style.left = newX + 'px';
 
             var handlePosition = newX / maxX;
             var scanner = document.querySelector('.scanner');
-            scanner.style.height = (handlePosition * 400) + 430 + 'px'; // Adjust the multiplier as per your requirement
+            scanner.style.height = (handlePosition * 400) + 500 + 'px'; // Adjust the multiplier as per your requirement
           }
         });
       });
@@ -61,8 +73,6 @@
       var html5QrcodeScanner = new Html5QrcodeScanner(
         "reader", { fps: 20, qrbox: 500 });
       html5QrcodeScanner.render(onScanSuccess, onScanError);
-
-
     </script>
   </div>
   <div class="score">
@@ -72,3 +82,4 @@
 </div>
 
 </body>
+</html>
