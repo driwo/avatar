@@ -17488,7 +17488,7 @@ var Html5QrcodeScanner = (function () {
           (e.style.marginRight = "10px");
           var f = document.createElement("select");
           f.style.height = "100px";
-          f.style.width = "200px";
+          f.style.width = "300px";
           f.style.fontSize = "20px";
           // f = menu for camera selection
           //f.style.backgroundColor = "#FF0000";
@@ -17508,13 +17508,13 @@ var Html5QrcodeScanner = (function () {
           var o = document.createElement("button");
 
           n.style.height = "100px";
-          n.style.width = "400px";
+          n.style.width = "300px";
           n.style.fontSize = "40px";
-          n.style.paddingBottom = "20px";
+          //n.style.paddingBottom = "20px";
           o.style.height = "100px";
-          o.style.width = "400px";
+          o.style.width = "300px";
           o.style.fontSize = "40px";
-          o.style.paddingBottom = "20px";
+          //o.style.paddingBottom = "20px";
 
 
 

@@ -3,40 +3,37 @@
 <head>
   <link rel="stylesheet" href="css/index.css">
   <title>Camera and QR Code Scanner</title>
+  <script src="js/main.js"></script>
 </head>
 
 <body>
-<header>
 
-</header>
-<script src="js/main.js"></script>
-
-
-
-<div class="row">
-  <div class="col">
-    <div style="width:800px;" id="reader"></div>
+<div class="main">
+  <div class="header">
+    <h1>SCAN IT! </h1>
   </div>
-  <div class="score" style="padding:30px;">
+  <div class="scanner">
+    <div style="width:800px" id="reader"></div>
+    <script type="text/javascript">
+      function onScanSuccess(qrCodeMessage) {
+        document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
+      }
+
+      function onScanError(errorMessage) {
+        //handle scan error
+      }
+
+      var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", { fps: 20, qrbox: 500 });
+      html5QrcodeScanner.render(onScanSuccess, onScanError);
+
+
+    </script>
+  </div>
+  <div class="score">
     <h4>SCAN RESULT</h4>
     <div id="result">Result Here</div>
   </div>
 </div>
 
-
-<script type="text/javascript">
-  function onScanSuccess(qrCodeMessage) {
-    document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
-  }
-
-  function onScanError(errorMessage) {
-    //handle scan error
-  }
-
-  var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", { fps: 20, qrbox: 500 });
-  html5QrcodeScanner.render(onScanSuccess, onScanError);
-
-
-</script>
 </body>
