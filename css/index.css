@@ -49,6 +49,7 @@ body{
   background-color: lightgray;
   position: relative;
   cursor: grab;
+  border-radius: 30px;
 }
 
 .slider-handle {
@@ -61,5 +62,7 @@ body{
   transform: translate(-50%, -50%);
   cursor: grab;
   user-select: none;
+  border-radius: 50px;
+  border: 10px solid #FFD000;
 }
 

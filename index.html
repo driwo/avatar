@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="css/index.css">
   <title>Camera and QR Code Scanner</title>
   <script src="js/main.js"></script>
+  <script src="js/buttonclick.js" defer></script>
 </head>
 
 <body>
@@ -63,7 +64,7 @@
       function onScanSuccess(qrCodeMessage) {
         document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
         //Do something if scanned met parameter qrCodeMessage!
-        document.querySelector('.main').style.backgroundColor = "green";
+        playScan();
       }
 
       function onScanError(errorMessage) {

@@ -17147,7 +17147,7 @@ var Html5Qrcode = (function () {
             this.borderShaders.length &&
             this.borderShaders.forEach(function (c) {
               c.style.backgroundColor = b ? a.BORDER_SHADER_MATCH_COLOR : a.BORDER_SHADER_DEFAULT_COLOR;
-              c.style.backgroundColor = b ? document.querySelector('.main').style.backgroundColor = "green" : document.querySelector('.main').style.backgroundColor = "#c0c0c0";
+              c.style.backgroundColor = b ? document.querySelector('.main').style.backgroundColor = BORDER_SHADER_MATCH_COLOR : document.querySelector('.main').style.backgroundColor = "#c0c0c0";
             }),
               (this.qrMatch = b));
           },
@@ -17296,7 +17296,7 @@ _defineProperty(Html5Qrcode, "DEFAULT_WIDTH", 300),
   _defineProperty(Html5Qrcode, "SHADED_REGION_CLASSNAME", "qr-shaded-region"),
   _defineProperty(Html5Qrcode, "VERBOSE", !1),
   _defineProperty(Html5Qrcode, "BORDER_SHADER_DEFAULT_COLOR", "#ffffff"),
-  _defineProperty(Html5Qrcode, "BORDER_SHADER_MATCH_COLOR", "rgb(90, 193, 56)");
+  _defineProperty(Html5Qrcode, "BORDER_SHADER_MATCH_COLOR", "#90FF20");
 
 /** Html5QrcodeScanner **/
 ("use strict");
@@ -17436,8 +17436,9 @@ var Html5QrcodeScanner = (function () {
           var g = document.createElement("button");
           //Button formaat
           g.style.height = "200px";
-          g.style.width = "400px";
+          g.style.width = "100%";
           g.style.fontSize = "40px";
+          g.style.backgroundColor = "#FFD000";
           (g.innerHTML = "Request Camera Permissions"),
             g.addEventListener("click", function () {
               (g.disabled = !0),
@@ -17490,7 +17491,7 @@ var Html5QrcodeScanner = (function () {
           (e.style.marginRight = "10px");
           var f = document.createElement("select");
           f.style.height = "100px";
-          f.style.width = "300px";
+          f.style.width = "100%";
           f.style.fontSize = "20px";
           // f = menu for camera selection
           //f.style.backgroundColor = "#FF0000";
@@ -17510,13 +17511,15 @@ var Html5QrcodeScanner = (function () {
           var o = document.createElement("button");
 
           n.style.height = "100px";
-          n.style.width = "300px";
+          n.style.width = "100%";
           n.style.fontSize = "40px";
-          //n.style.paddingBottom = "20px";
+          n.style.backgroundColor = "#90FF20";
           o.style.height = "100px";
-          o.style.width = "300px";
+          o.style.width = "100%";
           o.style.fontSize = "40px";
-          //o.style.paddingBottom = "20px";
+          o.style.backgroundColor = "#EE0D42FF";
+          n.addEventListener('click', playButton);
+          o.addEventListener('click', playButton);
 
 
 
