@@ -17147,7 +17147,7 @@ var Html5Qrcode = (function () {
             this.borderShaders.length &&
             this.borderShaders.forEach(function (c) {
               c.style.backgroundColor = b ? a.BORDER_SHADER_MATCH_COLOR : a.BORDER_SHADER_DEFAULT_COLOR;
-              c.style.backgroundColor = b ? document.querySelector('.main').style.backgroundColor = BORDER_SHADER_MATCH_COLOR : document.querySelector('.main').style.backgroundColor = "#c0c0c0";
+              c.style.backgroundColor = b ? document.querySelector('.main').style.backgroundColor = a.BORDER_SHADER_MATCH_COLOR : document.querySelector('.main').style.backgroundColor = "#c0c0c0";
             }),
               (this.qrMatch = b));
           },
@@ -17439,6 +17439,7 @@ var Html5QrcodeScanner = (function () {
           g.style.width = "100%";
           g.style.fontSize = "40px";
           g.style.backgroundColor = "#FFD000";
+          g.style.color = "#000000";
           (g.innerHTML = "Request Camera Permissions"),
             g.addEventListener("click", function () {
               (g.disabled = !0),
@@ -17514,10 +17515,12 @@ var Html5QrcodeScanner = (function () {
           n.style.width = "100%";
           n.style.fontSize = "40px";
           n.style.backgroundColor = "#90FF20";
+          n.style.color = "#000000";
           o.style.height = "100px";
           o.style.width = "100%";
           o.style.fontSize = "40px";
-          o.style.backgroundColor = "#EE0D42FF";
+          o.style.backgroundColor = "#EC2247";
+          o.style.color = "#000000";
           n.addEventListener('click', playButton);
           o.addEventListener('click', playButton);
 
