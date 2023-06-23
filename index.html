@@ -10,7 +10,7 @@
 
 <div class="main">
   <div class="header">
-    <h1>Adjust Screen</h1>
+    <h1>Adjust Screen!</h1>
     <div class="slider">
       <div class="slider-handle"></div>
     </div>
@@ -49,10 +49,9 @@
             var clientX = e.clientX || e.touches[0].clientX;
             var newX = Math.min(Math.max(clientX - slider.offsetLeft, 0), maxX);
             handle.style.left = newX + 'px';
-
             var handlePosition = newX / maxX;
             var scanner = document.querySelector('.scanner');
-            scanner.style.height = (handlePosition * 800) + 500 + 'px'; // Adjust the multiplier as per your requirement
+            scanner.style.height = (handlePosition * window.screen.availHeight) + 500 + 'px'; // Adjust the multiplier as per your requirement
           }
         });
       });
