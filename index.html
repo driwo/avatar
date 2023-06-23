@@ -63,6 +63,7 @@
       function onScanSuccess(qrCodeMessage) {
         document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
         //Do something if scanned met parameter qrCodeMessage!
+        document.querySelector('.main').style.backgroundColor = "green";
       }
 
       function onScanError(errorMessage) {
