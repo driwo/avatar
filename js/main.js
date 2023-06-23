@@ -17109,14 +17109,14 @@ var Html5Qrcode = (function () {
               )
                 this.hasBorderShaders = !1;
               else {
-                this._insertShaderBorders(f, 40, 5, -5, 0, !0),
-                  this._insertShaderBorders(f, 40, 5, -5, 0, !1),
-                  this._insertShaderBorders(f, 40, 5, e + 5, 0, !0),
-                  this._insertShaderBorders(f, 40, 5, e + 5, 0, !1),
-                  this._insertShaderBorders(f, 5, 45, -5, -5, !0),
-                  this._insertShaderBorders(f, 5, 45, e + 5 - 40, -5, !0),
-                  this._insertShaderBorders(f, 5, 45, -5, -5, !1),
-                  this._insertShaderBorders(f, 5, 45, e + 5 - 40, -5, !1),
+                this._insertShaderBorders(f, 100, 15, -5, 0, !0),
+                  this._insertShaderBorders(f, 100, 15, -5, 0, !1),
+                  this._insertShaderBorders(f, 100, 16, e -1, 0, !0),
+                  this._insertShaderBorders(f, 100, 16, e -1, 0, !1),
+                  this._insertShaderBorders(f, 16, 100, -5, -5, !0),
+                  this._insertShaderBorders(f, 16, 100, e + 5 - 90, -5, !0),
+                  this._insertShaderBorders(f, 16, 100, -5, -5, !1),
+                  this._insertShaderBorders(f, 16, 100, e + 5 - 90, -5, !1),
                   (this.hasBorderShaders = !0);
               }
               b.append(f);
@@ -17436,7 +17436,7 @@ var Html5QrcodeScanner = (function () {
           //Button formaat
           g.style.height = "200px";
           g.style.width = "400px";
-          g.style.fontSize = "50px";
+          g.style.fontSize = "40px";
           (g.innerHTML = "Request Camera Permissions"),
             g.addEventListener("click", function () {
               (g.disabled = !0),
@@ -17452,6 +17452,7 @@ var Html5QrcodeScanner = (function () {
             }),
             f.appendChild(g),
             e.appendChild(f);
+            //e.style.backgroundColor = "#FF0000";
           var h = document.createElement("div");
           (h.id = this.__getDashboardSectionFileScanRegionId()), (h.style.textAlign = "center"), (h.style.display = this.currentScanType == a.SCAN_TYPE_CAMERA ? "none" : "block"), d.appendChild(h);
           var i = document.createElement("input");
@@ -17508,11 +17509,11 @@ var Html5QrcodeScanner = (function () {
 
           n.style.height = "100px";
           n.style.width = "400px";
-          n.style.fontSize = "50px";
+          n.style.fontSize = "40px";
           n.style.paddingBottom = "20px";
           o.style.height = "100px";
           o.style.width = "400px";
-          o.style.fontSize = "50px";
+          o.style.fontSize = "40px";
           o.style.paddingBottom = "20px";
 
 
