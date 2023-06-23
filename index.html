@@ -11,12 +11,47 @@
 <div class="main">
   <div class="header">
     <h1>SCAN IT! </h1>
+    <div class="slider">
+      <div class="slider-handle"></div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var slider = document.querySelector('.slider');
+        var handle = document.querySelector('.slider-handle');
+        var isDragging = false;
+
+        handle.addEventListener('mousedown', function(e) {
+          isDragging = true;
+          handle.style.cursor = 'grabbing';
+        });
+
+        handle.addEventListener('mouseup', function(e) {
+          isDragging = false;
+          handle.style.cursor = 'grab';
+        });
+        handle.style.left = slider.offsetWidth - handle.offsetWidth + 80 + 'px';
+        slider.addEventListener('mousemove', function(e) {
+          if (isDragging) {
+            var sliderWidth = slider.offsetWidth;
+            var handleWidth = handle.offsetWidth;
+            var maxX = sliderWidth - handleWidth + 80;
+            var newX = Math.min(Math.max(e.clientX - slider.offsetLeft, 0), maxX);
+            handle.style.left = newX + 'px';
+
+            var handlePosition = newX / maxX;
+            var scanner = document.querySelector('.scanner');
+            scanner.style.height = (handlePosition * 400) + 430 + 'px'; // Adjust the multiplier as per your requirement
+          }
+        });
+      });
+    </script>
   </div>
   <div class="scanner">
     <div style="width:800px" id="reader"></div>
     <script type="text/javascript">
       function onScanSuccess(qrCodeMessage) {
         document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
+        //Do something if scanned met parameter qrCodeMessage!
       }
 
       function onScanError(errorMessage) {
@@ -31,7 +66,7 @@
     </script>
   </div>
   <div class="score">
-    <h4>SCAN RESULT</h4>
+    <h4 id="hi">SCAN RESULT</h4>
     <div id="result">Result Here</div>
   </div>
 </div>

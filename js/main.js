@@ -17453,6 +17453,7 @@ var Html5QrcodeScanner = (function () {
             f.appendChild(g),
             e.appendChild(f);
             //e.style.backgroundColor = "#FF0000";
+
           var h = document.createElement("div");
           (h.id = this.__getDashboardSectionFileScanRegionId()), (h.style.textAlign = "center"), (h.style.display = this.currentScanType == a.SCAN_TYPE_CAMERA ? "none" : "block"), d.appendChild(h);
           var i = document.createElement("input");
