@@ -30,12 +30,12 @@
           endEvent = 'touchend';
         }
 
-        handle.addEventListener(startEvent, function(e) {
+        handle.addEventListener(startEvent, function() {
           isDragging = true;
           handle.style.cursor = 'grabbing';
         });
 
-        handle.addEventListener(endEvent, function(e) {
+        handle.addEventListener(endEvent, function() {
           isDragging = false;
           handle.style.cursor = 'grab';
         });
@@ -52,7 +52,7 @@
 
             var handlePosition = newX / maxX;
             var scanner = document.querySelector('.scanner');
-            scanner.style.height = (handlePosition * 400) + 500 + 'px'; // Adjust the multiplier as per your requirement
+            scanner.style.height = (handlePosition * 500) + 500 + 'px'; // Adjust the multiplier as per your requirement
           }
         });
       });
