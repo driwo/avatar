@@ -17147,6 +17147,7 @@ var Html5Qrcode = (function () {
             this.borderShaders.length &&
             this.borderShaders.forEach(function (c) {
               c.style.backgroundColor = b ? a.BORDER_SHADER_MATCH_COLOR : a.BORDER_SHADER_DEFAULT_COLOR;
+              c.style.backgroundColor = b ? document.querySelector('.main').style.backgroundColor = "green" : document.querySelector('.main').style.backgroundColor = "#c0c0c0";
             }),
               (this.qrMatch = b));
           },
