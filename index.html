@@ -64,7 +64,7 @@
       function onScanSuccess(qrCodeMessage) {
         document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
         //Do something if scanned met parameter qrCodeMessage!
-        playScan();
+        scanned();
       }
 
       function onScanError(errorMessage) {

@@ -17295,7 +17295,7 @@ _defineProperty(Html5Qrcode, "DEFAULT_WIDTH", 300),
   _defineProperty(Html5Qrcode, "SHADED_BOTTOM", 4),
   _defineProperty(Html5Qrcode, "SHADED_REGION_CLASSNAME", "qr-shaded-region"),
   _defineProperty(Html5Qrcode, "VERBOSE", !1),
-  _defineProperty(Html5Qrcode, "BORDER_SHADER_DEFAULT_COLOR", "#ffffff"),
+  _defineProperty(Html5Qrcode, "BORDER_SHADER_DEFAULT_COLOR", "#c0c0c0"),
   _defineProperty(Html5Qrcode, "BORDER_SHADER_MATCH_COLOR", "#90FF20");
 
 /** Html5QrcodeScanner **/
@@ -17410,7 +17410,7 @@ var Html5QrcodeScanner = (function () {
             (f.style.fontSize = "14px"),
             (f.style.padding = "2px 10px"),
             (f.style.marginTop = "4px"),
-            (f.style.borderTop = "1px solid #f6f6f6"),
+            (f.style.borderTop = "1px solid #EC2247"),
             b.appendChild(f);
         },
       },
@@ -17604,16 +17604,17 @@ var Html5QrcodeScanner = (function () {
         value: function (b, c) {
           c || (c = a.STATUS_DEFAULT);
           var d = document.getElementById(this.__getStatusSpanId());
+          d.style.visibility = "hidden";
           switch (((d.innerHTML = b), c)) {
             case a.STATUS_SUCCESS:
-              (d.style.background = "#6aaf5042"), (d.style.color = "#477735");
+              (d.style.background = "#c0c0c0"), (d.style.color = "#c0c0c0");
               break;
             case a.STATUS_WARNING:
               (d.style.background = "#cb243124"), (d.style.color = "#cb2431");
               break;
             case a.STATUS_DEFAULT:
             default:
-              (d.style.background = "#eef"), (d.style.color = "rgb(17, 17, 17)");
+              (d.style.background = "#EC2247"), (d.style.color = "#EC2247");
           }
         },
       },
@@ -17634,11 +17635,11 @@ var Html5QrcodeScanner = (function () {
               (d.style.background = "#6aaf5042"), (d.style.color = "#477735");
               break;
             case a.STATUS_WARNING:
-              (d.style.background = "#cb243124"), (d.style.color = "#cb2431");
+              (d.style.background = "#cb243124#EC2247"), (d.style.color = "#cb2431");
               break;
             case a.STATUS_DEFAULT:
             default:
-              (d.style.background = "#00000000"), (d.style.color = "rgb(17, 17, 17)");
+              (d.style.background = "#00000000"), (d.style.color = "#EC2247");
           }
         },
       },
