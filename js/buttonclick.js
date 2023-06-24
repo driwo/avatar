@@ -8,9 +8,9 @@ buttons.forEach(function(button) {
 function scanned(){
   let scanner = document.querySelector('.scanner');
     if(scanner.style.visibility !== "hidden"){
-    scanner.style.visibility= "hidden";
+    scanner.style.display = "none";
     setTimeout(() => { biep.play(); }, 100);
-    setTimeout(() => { scanner.style.visibility= "visible"; }, 3000);
+    setTimeout(() => { scanner.style.display = "block"; }, 3000);
   }
 }
 function playButton() {
