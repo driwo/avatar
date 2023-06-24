@@ -52,7 +52,7 @@
             handle.style.left = newX + 'px';
             var handlePosition = newX / maxX;
             var scanner = document.querySelector('.scanner');
-            scanner.style.height = (handlePosition * window.screen.availHeight*2) + 500 + 'px'; // Adjust the multiplier as per your requirement
+            scanner.style.height = (handlePosition * window.screen.availHeight*1.5) + 350 + 'px'; // Adjust the multiplier as per your requirement
           }
         });
       });
@@ -72,7 +72,7 @@
       }
 
       var html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader", { fps: 20, qrbox: 500 });
+        "reader", { fps: 10, qrbox: 500 });
       html5QrcodeScanner.render(onScanSuccess, onScanError);
     </script>
   </div>
