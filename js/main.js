@@ -17441,7 +17441,7 @@ var Html5QrcodeScanner = (function () {
           g.style.backgroundColor = "#FFD000";
           g.style.color = "#000000";
           (g.innerHTML = "Request Camera Permissions"),
-            g.addEventListener("click", function () {
+            g.addEventListener("click", function askPermission() {
               (g.disabled = !0),
                 b.__setStatus("PERMISSION"),
                 b.__setHeaderMessage("Requesting camera permissions..."),
@@ -17521,17 +17521,13 @@ var Html5QrcodeScanner = (function () {
           o.style.fontSize = "40px";
           o.style.backgroundColor = "#EC2247";
           o.style.color = "#000000";
-          n.addEventListener('click', playButton);
-          o.addEventListener('click', playButton);
-
-
 
           (o.innerHTML = "Stop Scanning"),
             (o.style.display = "none"),
             (o.disabled = !0),
             m.appendChild(o),
             d.appendChild(m),
-            n.addEventListener("click", function () {
+            n.addEventListener("click", function startCamera() {
               (f.disabled = !0), (n.disabled = !0), c._showHideScanTypeSwapLink(!1);
               var b = c.config ? c.config : { fps: 10, qrbox: 250 },
                 d = f.value;
@@ -17544,6 +17540,7 @@ var Html5QrcodeScanner = (function () {
                 c._showHideScanTypeSwapLink(!0), (f.disabled = !1), (n.disabled = !1), c.__setStatus("IDLE"), c.__setHeaderMessage(b, a.STATUS_WARNING);
               });
             }),
+              //n.click();
             o.addEventListener("click", function () {
               (o.disabled = !0),
                 c.html5Qrcode
@@ -17630,6 +17627,8 @@ var Html5QrcodeScanner = (function () {
         value: function (b, c) {
           c || (c = a.STATUS_DEFAULT);
           var d = document.getElementById(this.__getHeaderMessageContainerId());
+          d.style.visibility = "hidden";
+
           switch (((d.innerHTML = b), (d.style.display = "block"), c)) {
             case a.STATUS_SUCCESS:
               (d.style.background = "#6aaf5042"), (d.style.color = "#477735");
@@ -17783,3 +17782,31 @@ _defineProperty(Html5QrcodeScanner, "SCAN_TYPE_CAMERA", "SCAN_TYPE_CAMERA"),
   _defineProperty(Html5QrcodeScanner, "STATUS_DEFAULT", "STATUS_DEFAULT"),
   _defineProperty(Html5QrcodeScanner, "ASSET_FILE_SCAN", "https://raw.githubusercontent.com/mebjas/html5-qrcode/master/assets/file-scan.gif"),
   _defineProperty(Html5QrcodeScanner, "ASSET_CAMERA_SCAN", "https://raw.githubusercontent.com/mebjas/html5-qrcode/master/assets/camera-scan.gif");
+
+
+function askPermission() {
+  (g.disabled = !0),
+      b.__setStatus("PERMISSION"),
+      b.__setHeaderMessage("Requesting camera permissions..."),
+      Html5Qrcode.getCameras()
+          .then(function (c) {
+            b.__setStatus("IDLE"), b.__resetHeaderMessage(), c && 0 != c.length ? (e.removeChild(f), b.__renderCameraSelection(c)) : b.__setStatus("No Cameras", a.STATUS_WARNING);
+          })
+          ["catch"](function (c) {
+        (g.disabled = !1), b.__setStatus("IDLE"), b.__setHeaderMessage(c, a.STATUS_WARNING);
+      });
+}
+
+function startCamera() {
+  (f.disabled = !0), (n.disabled = !0), c._showHideScanTypeSwapLink(!1);
+  var b = c.config ? c.config : { fps: 10, qrbox: 250 },
+      d = f.value;
+  c.html5Qrcode
+      .start(d, b, c.qrCodeSuccessCallback, c.qrCodeErrorCallback)
+      .then(function () {
+        (o.disabled = !1), (o.style.display = "inline-block"), (n.style.display = "none"), c.__setStatus("Scanning");
+      })
+      ["catch"](function (b) {
+    c._showHideScanTypeSwapLink(!0), (f.disabled = !1), (n.disabled = !1), c.__setStatus("IDLE"), c.__setHeaderMessage(b, a.STATUS_WARNING);
+  });
+}

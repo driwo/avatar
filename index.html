@@ -3,8 +3,12 @@
 <head>
   <link rel="stylesheet" href="css/index.css">
   <title>Camera and QR Code Scanner</title>
-  <script src="js/main.js"></script>
+  <script src="js/main.js"> defer</script>
   <script src="js/buttonclick.js" defer></script>
+  <script src="js/timebar.js" defer></script>
+
+
+
 </head>
 
 <body>
@@ -52,7 +56,7 @@
             handle.style.left = newX + 'px';
             var handlePosition = newX / maxX;
             var scanner = document.querySelector('.scanner');
-            scanner.style.height = (handlePosition * window.screen.availHeight*1.5) + 350 + 'px'; // Adjust the multiplier as per your requirement
+            scanner.style.height = (handlePosition * window.screen.availHeight*1.8) + 350 + 'px'; // Adjust the multiplier as per your requirement
           }
         });
       });
@@ -64,7 +68,7 @@
       function onScanSuccess(qrCodeMessage) {
         document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
         //Do something if scanned met parameter qrCodeMessage!
-        scanned();
+        scanned(qrCodeMessage);
       }
 
       function onScanError(errorMessage) {
@@ -77,6 +81,9 @@
     </script>
   </div>
   <div class="score">
+    <div id="timer-bar-container">
+      <div id="timer-bar"></div>
+    </div>
     <h4 id="hi">SCAN RESULT</h4>
     <div id="result">Result Here</div>
   </div>

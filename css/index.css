@@ -1,5 +1,5 @@
 body{
-  background-color: black;
+  background-color: #222222;
 }
 .main{
   display:flex;
@@ -14,7 +14,7 @@ body{
   display:flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
+  background-color: #222222;
   width: 100%;
   color: white;
 }
@@ -27,17 +27,18 @@ body{
   align-items: center;
 }
 .score{
+  padding-top: 50px;
   font-size: 50px;
   color: white;
   display:flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
+  background-color: #222222;
   width: 100%;
   flex-grow: 1;
 }
 .result{
-  background-color: green;
+  background-color: #90FF20;
   color:#fff;
   padding:20px;
   align-content: center;
@@ -46,7 +47,7 @@ body{
 .slider {
   width: 500px;
   height: 50px;
-  background-color: lightgray;
+  background-color: #c0c0c0;
   position: relative;
   cursor: grab;
   border-radius: 30px;
@@ -64,5 +65,20 @@ body{
   user-select: none;
   border-radius: 50px;
   border: 10px solid #FFD000;
+}
+#timer-bar-container {
+  width: 500px;
+  height: 42px;
+  border: 5px solid #c0c0c0;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+#timer-bar {
+
+  height: 100%;
+  background-color: #90FF20;
+  width: 100%;
+  transition: width linear, background-color 0.5s;
 }
 
