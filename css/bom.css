@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: black;
+  position: relative;
+  animation: flicker 1s infinite;
+  box-shadow: 0 0 100px #EC2227;
+}
+
+#timer {
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 100px;
+  font-weight: bold;
+}
+
+@keyframes flicker {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
