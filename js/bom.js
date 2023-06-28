@@ -16,7 +16,7 @@ window.onload = function() {
     }
     else {
       clearInterval(interval);
-      window.location.href = "bom.html";
+      window.location.href = "index.html";
       redLightElement.style.display = "none";
     }
   }
