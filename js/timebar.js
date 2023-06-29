@@ -3,10 +3,10 @@ var timerBar = document.getElementById("timer-bar");
 function startTimer(timeout) {
   timerBar.style.backgroundColor = "#EC2247";
   var width = 100;
-  var decreaseAmount = 1; // Amount to decrease the width by in each interval
+  let decreaseAmount; // Amount to decrease the width by in each interval
   timerBar.style.width = width + "%";
 
-  var intervalDuration = 10; // Interval duration in milliseconds
+  var intervalDuration = 100; // Interval duration in milliseconds
   decreaseAmount = (intervalDuration*100) / timeout; // Adjust the decrease amount based on the frame count
 
   var timerInterval = setInterval(frame, intervalDuration); // Update the timer at the specified interval
