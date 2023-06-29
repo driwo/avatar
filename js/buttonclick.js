@@ -17,10 +17,10 @@ buttons.forEach(function(button) {
 function scanned(qrCodeMessage){
   let scanner = document.querySelector('.scanner');
     if(scan === 0){
-      scan = 1;
       localStorage.setItem('permission', "1");
       const timeout = 2600;
       if(qrCodeMessage === "Nieje Zeker!"){
+        scan = 1;
         window.location.href = "bom.html";
       }
       else{
