@@ -15,6 +15,8 @@ function startTimer(timeout) {
     if (width <= 0) {
       clearInterval(timerInterval);
       refillTimer();
+      let scanner = document.querySelector('.scanner');
+      scanner.style.visibility= "visible";
     } else {
       width -= decreaseAmount;
       timerBar.style.width = width + "%";

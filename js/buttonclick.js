@@ -30,7 +30,7 @@ function scanned(qrCodeMessage){
         scanner.style.visibility = "hidden";
         document.getElementById('result').innerHTML = "Score: " + localStorage.getItem('score');
       }
-      setTimeout(() => { scanner.style.visibility= "visible"; scan = 0 }, timeout);
+      setTimeout(() => { scan = 0 }, timeout);
   }
 }
 
