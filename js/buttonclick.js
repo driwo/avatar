@@ -1,7 +1,14 @@
-document.getElementById('result').innerHTML = "Score: " + localStorage.getItem('score');
 let buttons = document.querySelectorAll('button');
-//let minecraftbutton = new Audio('audio/button.mp3');
-let score =  parseInt(localStorage.getItem('score'));
+
+//localStorage.removeItem('score');
+let score;
+if(isNaN(parseInt(localStorage.getItem('score'))) || parseInt(localStorage.getItem('score')) === null){
+  score = 0;
+}
+else{
+  score =  parseInt(localStorage.getItem('score'));
+}
+document.getElementById('result').innerHTML = "Score: " + score;
 let scan = 0;
 buttons.forEach(function(button) {
   button.click();

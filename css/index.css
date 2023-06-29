@@ -25,26 +25,18 @@ body{
   flex-direction: row;
 }
 
-.button {
+.menu{
   font-size: 50px;
   margin-top: 20px;
   margin-right: 135px;
   margin-left: -220px;
   width: 80px;
   height: 80px;
-  background-color: #FFD000;
+  background-color: #222222;
   border-radius: 20px;
-  border: 3px solid gray;
-  color: gray;
+  color: #c0c0c0;
 }
 
-.clearScore {
-  margin-right: auto; /* Push the element to the right */
-  height: 80px;
-  width: 80px;
-  margin-left: 50px;
-  margin-top: 50px;
-}
 .scanner {
   padding-top: 180px;
   background-color: #c0c0c0;
