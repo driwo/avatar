@@ -12,10 +12,16 @@ button{
 }
 .menu{
     font-size: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     width: 80px;
     height: 80px;
     background-color: #222222;
     border-radius: 20px;
     color: #ffffff;
 }
+.result{
+    padding-bottom: 20px;
+    font-size: 70px;
+    color: white;
+}
+

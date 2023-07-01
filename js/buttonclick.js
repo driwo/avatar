@@ -18,9 +18,9 @@ function scanned(qrCodeMessage){
   let scanner = document.querySelector('.scanner');
     if(scan === 0){
       localStorage.setItem('permission', "1");
+      scan = 1;
       const timeout = 2600;
       if(qrCodeMessage === "Nieje Zeker!"){
-        scan = 1;
         window.location.href = "bom.html";
       }
       else{
@@ -30,7 +30,7 @@ function scanned(qrCodeMessage){
         scanner.style.visibility = "hidden";
         document.getElementById('result').innerHTML = "Score: " + localStorage.getItem('score');
       }
-      setTimeout(() => { scan = 0 }, timeout);
+      //setTimeout(() => { scan = 0 }, timeout);
   }
 }
 
