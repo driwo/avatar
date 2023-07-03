@@ -1162,8 +1162,7 @@
       const n = new Uint8ClampedArray(e * r);
       for (let e = 0, r = 0, i = t.length; e < i; e += 4, r++) {
         let i;
-        if (0 === t[e + 3]) i = 255;
-        else {
+        if (0 === t[e + 3]) i = 255; else {
           i = (306 * t[e] + 601 * t[e + 1] + 117 * t[e + 2] + 512) >> 10;
         }
         n[r] = i;
