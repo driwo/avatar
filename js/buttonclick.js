@@ -39,7 +39,7 @@ function scanned(qrCodeMessage){
       let storedArray = JSON.parse(storedArrayString);
       const footer = document.getElementById("score");
       //BOOLEAN VOOR EENMALIGE SCAN ENABLE
-      const onetime = 0;
+      const onetime = 1;
       const unique = 0; //met 'spw' ervoor
       if(qrCodeMessage === "Nieje Zeker!"){
         window.location.href = "bom.html";
