@@ -40,14 +40,18 @@ function scanned(qrCodeMessage){
       const footer = document.getElementById("score");
       //BOOLEAN VOOR EENMALIGE SCAN ENABLE
       const onetime = 1;
-      const unique = 0; //met 'spw' ervoor
+      const unique = 1; //met 'spw' ervoor
       if(qrCodeMessage === "Nieje Zeker!"){
         window.location.href = "bom.html";
+      }
+      else if(qrCodeMessage.substring(0,6)==="player"){
+        checkName(qrCodeMessage.substring(6,9));
+        startTimer(timeout-600);
+        scanner.style.visibility = "hidden";
       }
       else if(qrCodeMessage.substring(0,3)!=="spw" && unique){
         footer.style.backgroundColor = "#EC2247";
         setTimeout(function() {scan = 0; footer.style.backgroundColor = "#222222";}, 1000);
-
       }
       else if (storedArray.includes(qrCodeMessage) && onetime) {
         footer.style.backgroundColor = "#EC2247";
@@ -61,7 +65,12 @@ function scanned(qrCodeMessage){
         const updatedArrayString = JSON.stringify(storedArray);
         localStorage.setItem('myArray', updatedArrayString);
         startTimer(timeout-600);
-        score++;
+        if(qrCodeMessage.substring(0,8)==="spwsuper"){
+          score = score + 10000;
+        }
+        else{
+          score++;
+        }
         localStorage.setItem('score', score.toString());
         scanner.style.visibility = "hidden";
         document.getElementById('result').innerHTML = "Score: " + localStorage.getItem('score');
