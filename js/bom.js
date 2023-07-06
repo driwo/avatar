@@ -1,7 +1,7 @@
 window.onload = function() {
   var timerElement = document.getElementById("timer");
   var redLightElement = document.querySelector('.circle::before');
-  var seconds = 9;
+  var seconds = 59;
   var milliseconds = seconds * 1000;
   var interval;
 

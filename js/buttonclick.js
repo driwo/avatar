@@ -1,5 +1,16 @@
 let buttons = document.querySelectorAll('button');
 
+const bomstorage = localStorage.getItem('bom');
+let bomActive;
+// Check if the stored array is null or undefined
+if (bomstorage) {
+  bomActive = JSON.parse(bomstorage);
+}
+else {
+  bomActive = "0"
+  localStorage.setItem('bom', JSON.stringify(bomActive));
+}
+
 // score uit localstorage
 let score;
 if(isNaN(parseInt(localStorage.getItem('score'))) || parseInt(localStorage.getItem('score')) === null){
@@ -40,8 +51,17 @@ function scanned(qrCodeMessage){
       const footer = document.getElementById("score");
       //BOOLEAN VOOR EENMALIGE SCAN ENABLE
       const onetime = 1;
-      const unique = 1; //met 'spw' ervoor
-      if(qrCodeMessage === "Nieje Zeker!"){
+      const unique = 0; //met 'spw' ervoor
+      if(qrCodeMessage === "explode" && JSON.parse(localStorage.getItem('bom'))==="1" ){
+        bomActive = "0";
+        localStorage.setItem('bom', JSON.stringify(bomActive));
+        localStorage.setItem('bomklaar', "1");
+        window.location.href = "bomready.html";
+      }
+      else if(qrCodeMessage === "activate"){
+        bomActive = "1";
+        localStorage.setItem('bom', JSON.stringify(bomActive));
+        console.log(JSON.parse(localStorage.getItem('bom')));
         window.location.href = "bom.html";
       }
       else if(qrCodeMessage.substring(0,6)==="player"){
@@ -66,7 +86,7 @@ function scanned(qrCodeMessage){
         localStorage.setItem('myArray', updatedArrayString);
         startTimer(timeout-600);
         if(qrCodeMessage.substring(0,8)==="spwsuper"){
-          score = score + 10000;
+          score = score + 10;
         }
         else{
           score++;

@@ -1,6 +1,6 @@
 const anilijst = ["maj","seb","kin","ant","mil","lou","bav","daa","noo","lie","mat","joc","cla","pie","dri"];
 let hitlijst;
-const nrNuke = 2;
+const nrNuke = 9;
 
 const storedA= localStorage.getItem('hitlijst');
 if (storedA) {

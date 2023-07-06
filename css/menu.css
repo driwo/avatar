@@ -25,12 +25,29 @@ button{
     color: white;
 }
 .text{
+    margin-top: 200px;
     color: white;
     font-size: 70px;
     width: 800px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-color: black;
+
+}
+.bom{
+    margin-top: 200px;
+    color: black;
+    font-size: 70px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+
 }
 

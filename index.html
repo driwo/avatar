@@ -9,6 +9,14 @@
   <script src="js/buttonclick.js" defer></script>
   <script src="js/timebar.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script>
+    localStorage.setItem('nukeklaar', "0");
+    localStorage.setItem('bomklaar', "0");
+    setTimeout(function (){
+      bomActive = "0";
+      localStorage.setItem('bom', JSON.stringify(bomActive));
+    } , 10000);
+  </script>
 </head>
 
 <body>
