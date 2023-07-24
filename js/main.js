@@ -17557,7 +17557,7 @@ var Html5QrcodeScanner = (function () {
                 c._showHideScanTypeSwapLink(!0), (f.disabled = !1), (n.disabled = !1), c.__setStatus("IDLE"), c.__setHeaderMessage(b, a.STATUS_WARNING);
               });
             }),
-              //n.click();
+              n.click();
             o.addEventListener("click", function () {
               (o.disabled = !0),
                 c.html5Qrcode

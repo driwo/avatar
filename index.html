@@ -69,7 +69,7 @@
           var handleWidth = handle.offsetWidth;
           var maxX = sliderWidth - handleWidth + 80;
           var currentX = parseInt(handle.style.left, 10);
-          var newX = currentX - (maxX / 1); // Adjust the speed by changing the divisor value
+          var newX = currentX - (maxX / 30); // Adjust the speed by changing the divisor value
 
           if (newX <= 0) {
             newX = 0;
