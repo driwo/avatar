@@ -95,3 +95,7 @@ body{
   transition: width linear, background-color 0.5s;
 }
 
+#k0,#k1,#k2 {
+  background-color: #c0c0c0;
+}
+

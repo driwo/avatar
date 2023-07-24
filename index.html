@@ -6,6 +6,8 @@
   <title>Camera and QR Code Scanner</title>
   <script src="js/main.js"></script>
   <script src="js/nameboxes.js" defer></script>
+  <script src="js/fases.js" defer></script>
+  <script src="js/mm%20en%20haasje.js" defer></script>
   <script src="js/buttonclick.js" defer></script>
   <script src="js/timebar.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -48,17 +50,46 @@
           endEvent = 'touchend';
         }
 
-        handle.addEventListener(startEvent, function() {
+        handle.addEventListener(startEvent, function(e) {
           isDragging = true;
           handle.style.cursor = 'grabbing';
+          e.preventDefault(); // Prevents unwanted text selection on some devices
         });
 
         handle.addEventListener(endEvent, function() {
           isDragging = false;
           handle.style.cursor = 'grab';
         });
+
         handle.style.left = slider.offsetWidth - handle.offsetWidth + 80 + 'px';
 
+        // Function to slide the handle programmatically
+        function slideHandle(timestamp) {
+          var sliderWidth = slider.offsetWidth;
+          var handleWidth = handle.offsetWidth;
+          var maxX = sliderWidth - handleWidth + 80;
+          var currentX = parseInt(handle.style.left, 10);
+          var newX = currentX - (maxX / 1); // Adjust the speed by changing the divisor value
+
+          if (newX <= 0) {
+            newX = 0;
+            // Remove the following line to allow manual sliding after automated sliding finishes
+            // cancelAnimationFrame(animationID);
+          } else {
+            animationID = requestAnimationFrame(slideHandle);
+          }
+
+          handle.style.left = newX + 'px';
+          var handlePosition = newX / maxX;
+          var scanner = document.querySelector('.scanner');
+          scanner.style.height = (handlePosition * window.screen.availHeight * 1.8) + 350 + 'px'; // Adjust the multiplier as per your requirement
+        }
+
+        // Call slideHandle() to start the automated sliding
+        var animationID;
+        animationID = requestAnimationFrame(slideHandle);
+
+        // Event listener for manual sliding
         slider.addEventListener(moveEvent, function(e) {
           if (isDragging) {
             var sliderWidth = slider.offsetWidth;
@@ -66,10 +97,11 @@
             var maxX = sliderWidth - handleWidth + 80;
             var clientX = e.clientX || e.touches[0].clientX;
             var newX = Math.min(Math.max(clientX - slider.offsetLeft, 0), maxX);
+
             handle.style.left = newX + 'px';
             var handlePosition = newX / maxX;
             var scanner = document.querySelector('.scanner');
-            scanner.style.height = (handlePosition * window.screen.availHeight*1.8) + 350 + 'px'; // Adjust the multiplier as per your requirement
+            scanner.style.height = (handlePosition * window.screen.availHeight * 1.8) + 350 + 'px'; // Adjust the multiplier as per your requirement
           }
         });
       });
@@ -97,13 +129,20 @@
     <div id="timer-bar-container">
       <div id="timer-bar"></div>
     </div>
-    <div id="result">Score: 0</div>
+    <div id="result">Fase: 1</div>
+    <a id="mmtext">Mastermind</a>
+    <div class="mastermind">
     <div class="container">
       <div class="row">
         <div class="box" id="k0">Kleur 1</div>
         <div class="box" id="k1">Kleur 2</div>
         <div class="box" id="k2">Kleur 3</div>
       </div>
+    </div>
+    </div>
+    <br>
+    <a>Spelers</a>
+    <div class="container">
       <div class="row">
         <div class="box" id="0">Tisse</div>
         <div class="box" id="1">Seymens</div>

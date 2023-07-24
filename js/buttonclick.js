@@ -11,15 +11,16 @@ else {
   localStorage.setItem('bom', JSON.stringify(bomActive));
 }
 
-// score uit localstorage
-let score;
-if(isNaN(parseInt(localStorage.getItem('score'))) || parseInt(localStorage.getItem('score')) === null){
-  score = 0;
+// fase uit localstorage
+let fase;
+if(isNaN(parseInt(localStorage.getItem('fase'))) || parseInt(localStorage.getItem('fase')) === null){
+  fase = 1;
+  localStorage.setItem('fase', fase.toString());
 }
 else{
-  score =  parseInt(localStorage.getItem('score'));
+  fase =  parseInt(localStorage.getItem('fase'));
 }
-document.getElementById('result').innerHTML = "Score: " + score;
+document.getElementById('result').innerHTML = "fase: " + fase;
 
 //array QRcodes uit localstorage
 const storedArrayString = localStorage.getItem('myArray');
@@ -50,22 +51,32 @@ function scanned(qrCodeMessage){
       let storedArray = JSON.parse(storedArrayString);
       const footer = document.getElementById("score");
       //BOOLEAN VOOR EENMALIGE SCAN ENABLE
-      const onetime = 1;
+      const onetime = 0;
       const unique = 0; //met 'spw' ervoor
-      if(qrCodeMessage === "explode" && JSON.parse(localStorage.getItem('bom'))==="1" ){
+      if(qrCodeMessage === "puntB" && JSON.parse(localStorage.getItem('bom'))==="1" && parseInt(localStorage.getItem('fase'))===3 ){
         bomActive = "0";
         localStorage.setItem('bom', JSON.stringify(bomActive));
         localStorage.setItem('bomklaar', "1");
         window.location.href = "bomready.html";
       }
-      else if(qrCodeMessage === "activate"){
+      else if(qrCodeMessage === "puntA" && parseInt(localStorage.getItem('fase'))===3){
         bomActive = "1";
         localStorage.setItem('bom', JSON.stringify(bomActive));
         console.log(JSON.parse(localStorage.getItem('bom')));
         window.location.href = "bom.html";
       }
+      else if(qrCodeMessage.substring(0,5)==="kleur"){
+        colorScanned(qrCodeMessage.substring(5,9));
+        startTimer(timeout-600);
+        scanner.style.visibility = "hidden";
+      }
       else if(qrCodeMessage.substring(0,6)==="player"){
-        checkName(qrCodeMessage.substring(6,9));
+        checkName(qrCodeMessage.substring(6,10));
+        startTimer(timeout-600);
+        scanner.style.visibility = "hidden";
+      }
+      else if(qrCodeMessage === "haasje"){
+        haasjeScanned();
         startTimer(timeout-600);
         scanner.style.visibility = "hidden";
       }
@@ -86,14 +97,14 @@ function scanned(qrCodeMessage){
         localStorage.setItem('myArray', updatedArrayString);
         startTimer(timeout-600);
         if(qrCodeMessage.substring(0,8)==="spwsuper"){
-          score = score + 10;
+          //fase = fase + 10;
         }
         else{
-          score++;
+          //fase++;
         }
-        localStorage.setItem('score', score.toString());
+        localStorage.setItem('fase', fase.toString());
         scanner.style.visibility = "hidden";
-        document.getElementById('result').innerHTML = "Score: " + localStorage.getItem('score');
+        document.getElementById('result').innerHTML = "fase: " + localStorage.getItem('fase');
       }
   }
 }

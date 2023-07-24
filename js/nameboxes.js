@@ -1,13 +1,14 @@
-const anilijst = ["maj","seb","kin","ant","mil","lou","bav","daa","noo","lie","mat","joc","cla","pie","dri"];
+const anilijst = ["tiss","seym","loui","bavo","daan","greg","dret","obep","thie","scev","simi","thib"];
 let hitlijst;
-const nrNuke = 9;
+const nrNuke = 15;
+let sum = 0;
 
 const storedA= localStorage.getItem('hitlijst');
 if (storedA) {
     hitlijst = JSON.parse(storedA);
 }
 else {
-    hitlijst = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    hitlijst = [0,0,0,0,0,0,0,0,0,0,0,0];
     const newStoredA = JSON.stringify(hitlijst);
     localStorage.setItem('hitlijst', newStoredA);
 }
@@ -28,7 +29,7 @@ function checkName(player){
     box.style.backgroundColor = "#90FF20";
 
     hitlijst[ID] = 1;
-    let sum = 0;
+    sum = 0;
     for (let i = 0; i < hitlijst.length; i++) {
         sum += hitlijst[i];
     }
@@ -39,6 +40,7 @@ function checkName(player){
     }
     const newStoredA = JSON.stringify(hitlijst);
     localStorage.setItem('hitlijst', newStoredA);
+    checkFase();
 }
 
 function nukeAvailable(){

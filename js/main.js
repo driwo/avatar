@@ -17482,32 +17482,50 @@ var Html5QrcodeScanner = (function () {
       {
         key: "__renderCameraSelection",
         value: function (b) {
-          var c = this,
-            d = document.getElementById(this.__getDashboardSectionCameraScanRegionId());
+          var c = this;
+          var d = document.getElementById(this.__getDashboardSectionCameraScanRegionId());
           d.style.textAlign = "center";
+
           var e = document.createElement("span");
-          // SELECT CAMERA (1)
-          //(e.innerHTML = "Select Camera (".concat(b.length, ") &nbsp;")),
-          (e.style.marginRight = "10px");
+          e.style.marginRight = "10px";
+          e.innerHTML = "Select Camera (" + b.length + ") &nbsp;";
+
           var f = document.createElement("select");
           f.style.height = "100px";
           f.style.width = "100%";
           f.style.fontSize = "20px";
-          // f = menu for camera selection
-          //f.style.backgroundColor = "#FF0000";
           f.id = this.__getCameraSelectionId();
+
           for (var g = 0; g < b.length; g++) {
-            var h = b[g],
-              j = h.id,
-              k = null == h.label ? j : h.label,
-              l = document.createElement("option");
-            (l.value = j), (l.innerHTML = k), f.appendChild(l);
+            var h = b[g];
+            var j = h.id;
+            var k = null == h.label ? j : h.label;
+            var l = document.createElement("option");
+            l.value = j;
+            l.innerHTML = k;
+            f.appendChild(l);
           }
-          e.appendChild(f), d.appendChild(e);
-          var m = document.createElement("span"),
-            n = document.createElement("button");
-          // START & STOP SCANNING button
-          (n.innerHTML = "Start Scanning"), m.appendChild(n);
+
+          // Check if there is a previously selected camera in localStorage
+          var selectedCamera = localStorage.getItem("selectedCamera");
+          if (selectedCamera) {
+            f.value = selectedCamera; // Set the previously selected camera as the default selection
+          }
+
+          // Add an event listener to the select element to update localStorage when a new camera is selected
+          f.addEventListener("change", function() {
+            var selectedValue = f.value;
+            localStorage.setItem("selectedCamera", selectedValue);
+          });
+
+          e.appendChild(f);
+          d.appendChild(e);
+
+          var m = document.createElement("span");
+          var n = document.createElement("button");
+          n.innerHTML = "Start Scanning";
+          m.appendChild(n);
+
           var o = document.createElement("button");
 
           n.style.height = "100px";
