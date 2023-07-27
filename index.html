@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="css/nameboxes.css">
   <title>Camera and QR Code Scanner</title>
   <script src="js/main.js"></script>
+  <script src="js/bom.js" defer></script>
   <script src="js/nameboxes.js" defer></script>
   <script src="js/fases.js" defer></script>
   <script src="js/mm%20en%20haasje.js" defer></script>
@@ -13,11 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script>
     localStorage.setItem('nukeklaar', "0");
-    localStorage.setItem('bomklaar', "0");
-    setTimeout(function (){
-      bomActive = "0";
-      localStorage.setItem('bom', JSON.stringify(bomActive));
-    } , 10000);
   </script>
 </head>
 
@@ -69,7 +65,7 @@
           var handleWidth = handle.offsetWidth;
           var maxX = sliderWidth - handleWidth + 80;
           var currentX = parseInt(handle.style.left, 10);
-          var newX = currentX - (maxX / 30); // Adjust the speed by changing the divisor value
+          var newX = currentX - (maxX / 20); // Adjust the speed by changing the divisor value
 
           if (newX <= 0) {
             newX = 0;
@@ -129,7 +125,7 @@
     <div id="timer-bar-container">
       <div id="timer-bar"></div>
     </div>
-    <div id="result">Fase: 1</div>
+    <div id="result">fase: 1</div>
     <a id="mmtext">Mastermind</a>
     <div class="mastermind">
     <div class="container">
@@ -141,6 +137,7 @@
     </div>
     </div>
     <br>
+    <span id="timer">01:10</span>
     <a>Spelers</a>
     <div class="container">
       <div class="row">

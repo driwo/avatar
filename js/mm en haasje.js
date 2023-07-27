@@ -34,6 +34,7 @@ function colorScanned(color){
     }
     else{
         kleurbox.style.backgroundColor = "gray";
+        return 0;
     }
     colorIndex++;
     if(colorIndex===3){

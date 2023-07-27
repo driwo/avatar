@@ -1,15 +1,8 @@
 let buttons = document.querySelectorAll('button');
 
 const bomstorage = localStorage.getItem('bom');
-let bomActive;
-// Check if the stored array is null or undefined
-if (bomstorage) {
-  bomActive = JSON.parse(bomstorage);
-}
-else {
-  bomActive = "0"
-  localStorage.setItem('bom', JSON.stringify(bomActive));
-}
+let bomActive = 0;
+let bomExploded = 0;
 
 // fase uit localstorage
 let fase;
@@ -53,17 +46,21 @@ function scanned(qrCodeMessage){
       //BOOLEAN VOOR EENMALIGE SCAN ENABLE
       const onetime = 0;
       const unique = 0; //met 'spw' ervoor
-      if(qrCodeMessage === "puntB" && JSON.parse(localStorage.getItem('bom'))==="1" && parseInt(localStorage.getItem('fase'))===3 ){
-        bomActive = "0";
-        localStorage.setItem('bom', JSON.stringify(bomActive));
-        localStorage.setItem('bomklaar', "1");
-        window.location.href = "bomready.html";
+      if(qrCodeMessage === "puntB" && bomActive===1 && parseInt(localStorage.getItem('fase'))===3 ){
+        bomActive = 0;
+        mmtext.innerHTML = "Bom ontploft!";
+        timer.style.display = "none";
+        bomExploded=1;
+        startTimer(timeout-600);
+        scanner.style.visibility = "hidden";
+        checkFase();
       }
       else if(qrCodeMessage === "puntA" && parseInt(localStorage.getItem('fase'))===3){
-        bomActive = "1";
-        localStorage.setItem('bom', JSON.stringify(bomActive));
-        console.log(JSON.parse(localStorage.getItem('bom')));
-        window.location.href = "bom.html";
+        startBom();
+        startTimer(58000);
+        scanner.style.visibility = "hidden";
+        //console.log(JSON.parse(localStorage.getItem('bom')));
+        //window.location.href = "bom.html";
       }
       else if(qrCodeMessage.substring(0,5)==="kleur"){
         colorScanned(qrCodeMessage.substring(5,9));

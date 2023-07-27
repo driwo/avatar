@@ -6,35 +6,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.circle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background-color: black;
-  position: relative;
-}
-
-.circle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  background-color: black;
-  animation: flicker 500ms infinite;
-  box-shadow: 0 0 200px #EC2227;
-  z-index: -1;
-}
-
 #timer {
-  position: absolute;
-  text-align: center;
-  color: white;
   font-size: 100px;
   font-weight: bold;
 }

@@ -7,6 +7,7 @@ body{
   align-items: center;
   min-height: 100vh;
   background-color: #c0c0c0;
+  font-family: Verdana, math;
 }
 .header {
   padding-top: 20px;
@@ -56,7 +57,16 @@ body{
   width: 100%;
   flex-grow: 1;
 }
+@font-face {
+  font-family: "timerfont";
+  src: url("../fonts/E1234.ttf");
+}
+#timer {
+  font-size: 200px;
+  font-weight: bold;
+  font-family: "timerfont", sans-serif;
 
+}
 .slider {
   width: 400px;
   height: 50px;
