@@ -57,7 +57,7 @@ function scanned(qrCodeMessage){
       }
       else if(qrCodeMessage === "puntA" && parseInt(localStorage.getItem('fase'))===3){
         startBom();
-        startTimer(58000);
+        startTimer(50000);
         scanner.style.visibility = "hidden";
         //console.log(JSON.parse(localStorage.getItem('bom')));
         //window.location.href = "bom.html";
