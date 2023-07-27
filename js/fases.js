@@ -20,7 +20,7 @@ if(parseInt(localStorage.getItem('fase'))===3){
 }
 if(parseInt(localStorage.getItem('fase'))===4){
     let mmtext = document.getElementById("mmtext");
-    mmtext.innerHTML = "Speel julie victory song!";
+    mmtext.innerHTML = "Speel jullie victory song!";
 }
 
 function checkFase(){
@@ -48,7 +48,7 @@ function checkFase(){
     else if(parseInt(localStorage.getItem('fase'))===3){
         if(bomExploded===1 && sum >=10){
             fase = 4;
-            mmtext.innerHTML = "Speel julie victory song!";
+            mmtext.innerHTML = "Speel jullie victory song!";
         }
     }
     localStorage.setItem('fase', fase.toString());
