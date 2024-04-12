@@ -5,16 +5,10 @@
   <link rel="stylesheet" href="css/nameboxes.css">
   <title>Camera and QR Code Scanner</title>
   <script src="js/main.js"></script>
-  <script src="js/bom.js" defer></script>
   <script src="js/nameboxes.js" defer></script>
-  <script src="js/fases.js" defer></script>
-  <script src="js/mm%20en%20haasje.js" defer></script>
   <script src="js/buttonclick.js" defer></script>
   <script src="js/timebar.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <script>
-    localStorage.setItem('nukeklaar', "0");
-  </script>
 </head>
 
 <body>
@@ -60,7 +54,7 @@
         handle.style.left = slider.offsetWidth - handle.offsetWidth + 80 + 'px';
 
         // Function to slide the handle programmatically
-        function slideHandle(timestamp) {
+        function slideHandle() {
           var sliderWidth = slider.offsetWidth;
           var handleWidth = handle.offsetWidth;
           var maxX = sliderWidth - handleWidth + 80;
@@ -125,40 +119,34 @@
     <div id="timer-bar-container">
       <div id="timer-bar"></div>
     </div>
-    <div id="result">fase: 1</div>
-    <a id="mmtext">Mastermind</a>
-    <div class="mastermind">
-    <div class="container">
-      <div class="row">
-        <div class="box" id="k0">Kleur 1</div>
-        <div class="box" id="k1">Kleur 2</div>
-        <div class="box" id="k2">Kleur 3</div>
-      </div>
-    </div>
-    </div>
+
+
     <br>
-    <span id="timer">01:10</span>
     <a>Spelers</a>
     <div class="container">
       <div class="row">
-        <div class="box" id="0">Tisse</div>
-        <div class="box" id="1">Seymens</div>
-        <div class="box" id="2">LL</div>
+        <div class="boxw" id="0">Water 1</div>
+        <div class="boxa" id="1">Aarde 1</div>
+        <div class="boxl" id="2">Lucht 1</div>
+        <div class="boxv" id="3">Vuur 1</div>
       </div>
       <div class="row">
-        <div class="box" id="3">Bavo</div>
-        <div class="box" id="4">Daan</div>
-        <div class="box" id="5">Greg</div>
+        <div class="boxw" id="4">Water 2</div>
+        <div class="boxa" id="5">Aarde 2</div>
+        <div class="boxl" id="6">Lucht 2</div>
+        <div class="boxv" id="7">Vuur 2</div>
       </div>
       <div class="row">
-        <div class="box" id="6">Drets</div>
-        <div class="box" id="7">Obe</div>
-        <div class="box" id="8">Thiess</div>
+        <div class="boxw" id="8">Water 3</div>
+        <div class="boxa" id="9">Aarde 3</div>
+        <div class="boxl" id="10">Lucht 3</div>
+        <div class="boxv" id="11">Vuur 3</div>
       </div>
       <div class="row">
-        <div class="box" id="9">Scev</div>
-        <div class="box" id="10">Simi</div>
-        <div class="box" id="11">Thibo</div>
+        <div class="boxw" id="12">Water 4</div>
+        <div class="boxa" id="13">Aarde 4</div>
+        <div class="boxl" id="14">Lucht 4</div>
+        <div class="boxv" id="15">Vuur 4</div>
       </div>
     </div>
   </div>
