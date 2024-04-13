@@ -91,3 +91,20 @@
      font-size: 30px;
      font-weight: bold;
  }
+.boxc {
+    width: 200px;
+    height: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 5px solid black;
+    border-radius: 20px;
+    color: black;
+    background-color: #c0c0c0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+

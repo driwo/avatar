@@ -1,5 +1,21 @@
 let buttons = document.querySelectorAll('button');
 
+const codelijst = ["6","5","4","3","2","1"];
+let codecracked = [0,0,0,0,0,0];
+
+for(let i = 0; i < 6; i++){
+  if(localStorage.getItem("code")){
+    const cc = JSON.parse(localStorage.getItem("code"));
+    if(cc[i]){
+      let id = 100 + i;
+      let c = document.getElementById(id.toString());
+      c.innerHTML = codelijst[i];
+      c.style.backgroundColor = "#90FF20";
+    }
+  }
+}
+
+
 // fase uit localstorage
 /*let fase;
 if(isNaN(parseInt(localStorage.getItem('fase'))) || parseInt(localStorage.getItem('fase')) === null){
@@ -47,7 +63,19 @@ function scanned(qrCodeMessage){
         startTimer(timeout-600);
         scanner.style.visibility = "hidden";
       }
+      else{
+        let ID;
+        let code;
+        for(let i = 0; i < 6; i++){
+          ID = 100 + i;
+          code = document.getElementById(ID.toString());
+          code.innerHTML = codelijst[i];
+          code.style.backgroundColor = "#90FF20";
+          codecracked[i] = 1;
+          localStorage.setItem("code",JSON.stringify(codecracked));
+        }
 
+      }
       /*
       else if (storedArray.includes(qrCodeMessage) && onetime) {
         footer.style.backgroundColor = "#EC2247";
