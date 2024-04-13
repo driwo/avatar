@@ -1,6 +1,6 @@
 const spelerlijst = ["w1","a1","l1","v1","w2","a2","l2","v2","w3","a3","l3","v3","w4","a4","l4","v4"];
 let hitlijst;
-const nrHit = 14;
+const nrHit = 12;
 let sum = 0;
 
 const storedA= localStorage.getItem('hitlijst');
@@ -34,12 +34,16 @@ function checkName(player){
         sum += hitlijst[i];
     }
     if(sum >= nrHit){
-        nukeAvailable();
+        digitcodeQRscanned();
     }
     const newStoredA = JSON.stringify(hitlijst);
     localStorage.setItem('hitlijst', newStoredA);
 }
 
-function nukeAvailable(){
-
+function digitcodeQRscanned(){
+    let code = document.getElementById("104");
+    code.innerHTML = codelijst[4];
+    code.style.backgroundColor = "#90FF20";
+    codecracked[4] = 1;
+    localStorage.setItem("code",JSON.stringify(codecracked));
 }

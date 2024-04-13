@@ -3,6 +3,7 @@ let buttons = document.querySelectorAll('button');
 const codelijst = ["6","5","4","3","2","1"];
 let codecracked = [0,0,0,0,0,0];
 
+
 for(let i = 0; i < 6; i++){
   if(localStorage.getItem("code")){
     const cc = JSON.parse(localStorage.getItem("code"));
