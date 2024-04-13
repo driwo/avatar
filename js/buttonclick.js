@@ -65,6 +65,7 @@ function scanned(qrCodeMessage){
         scanner.style.visibility = "hidden";
       }
       else{
+        /*
         let ID;
         let code;
         for(let i = 0; i < 6; i++){
@@ -74,7 +75,7 @@ function scanned(qrCodeMessage){
           code.style.backgroundColor = "#90FF20";
           codecracked[i] = 1;
           localStorage.setItem("code",JSON.stringify(codecracked));
-        }
+        }*/
 
       }
       /*
