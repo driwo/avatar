@@ -1,4 +1,3 @@
-var timerInterval;
 var timerBar = document.getElementById("timer-bar");
 function startTimer(timeout) {
   timerBar.style.backgroundColor = "#EC2247";

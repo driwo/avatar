@@ -2,6 +2,8 @@ clearcode = document.getElementById('clearcode');
 clearcode.addEventListener("click", clearCode);
 clearspeler = document.getElementById('clearspelers');
 clearspeler.addEventListener("click", clearSpelers);
+clearspeler = document.getElementById('clearaarde');
+clearspeler.addEventListener("click", clearAarde);
 
 /*
 let fase;
@@ -13,7 +15,9 @@ else{
 }
 document.getElementById('result').innerHTML = "fase: " + fase;
 */
-
+function clearAarde(){
+    localStorage.removeItem('aardewidth');
+}
 function clearCode(){
     localStorage.removeItem('code');
 }

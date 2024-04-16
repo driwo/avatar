@@ -64,7 +64,9 @@ function scanned(qrCodeMessage){
         startTimer(timeout-600);
         scanner.style.visibility = "hidden";
       }
-      else{
+      else if(qrCodeMessage.substring(0,3)==="bar") {
+        fillLocation();
+      }
         /*
         let ID;
         let code;
@@ -77,7 +79,7 @@ function scanned(qrCodeMessage){
           localStorage.setItem("code",JSON.stringify(codecracked));
         }*/
 
-      }
+
       /*
       else if (storedArray.includes(qrCodeMessage) && onetime) {
         footer.style.backgroundColor = "#EC2247";

@@ -96,11 +96,67 @@ body{
   border-radius: 40px;
   margin-bottom: 30px;
 }
+#watercontainer {
+  width: 500px;
+  height: 42px;
+  border: 5px solid #c0c0c0;
+  overflow: hidden;
+  border-radius: 40px;
+  margin-bottom: 30px;
+}
+#aardecontainer {
+  width: 500px;
+  height: 42px;
+  border: 5px solid #c0c0c0;
+  overflow: hidden;
+  border-radius: 40px;
+  margin-bottom: 30px;
+}
+#luchtcontainer {
+  width: 500px;
+  height: 42px;
+  border: 5px solid #c0c0c0;
+  overflow: hidden;
+  border-radius: 40px;
+  margin-bottom: 30px;
+}
+#vuurcontainer {
+  width: 500px;
+  height: 42px;
+  border: 5px solid #c0c0c0;
+  overflow: hidden;
+  border-radius: 40px;
+  margin-bottom: 30px;
+}
 
 #timer-bar {
   height: 100%;
   background-color: #90FF20;
   width: 100%;
+  transition: width linear, background-color 0.5s;
+}
+#waterbar {
+  height: 100%;
+  background-color: #6e8cf6;
+  width: 0;
+  transition: width linear, background-color 0.5s;
+}
+#aardebar {
+  height: 100%;
+  background-color: #67b25e;
+  width: 0;
+  transition: width linear, background-color 0.5s;
+}
+#luchtbar {
+  height: 100%;
+  background-color: #f1ee76;
+  width: 0;
+  transition: width linear, background-color 0.5s;
+}
+#vuurbar {
+  height: 100%;
+  background-color: #e13351;
+  width: 0;
   transition: width linear, background-color 0.5s;
 }
 
