@@ -52,14 +52,38 @@ button{
 }
 #clearwater{
     background-color: #6e8cf6;
+    border-width: 0;
+    border-radius: 20px;
+    color: black;
 }
 #clearaarde{
     background-color: #67b25e;
+    border-width: 0;
+    border-radius: 20px;
+    color: black;
 }
 #clearlucht{
     background-color: #f1ee76;
+    border-width: 0;
+    border-radius: 20px;
+    color: black;
 }
 #clearvuur{
     background-color: #e13351;
+    border-width: 0;
+    border-radius: 20px;
+    color: black;
+}
+#clearcode{
+    background-color: white;
+    border-width: 0;
+    border-radius: 20px;
+    color: black;
+}
+#clearspelers{
+    background-color: white;
+    border-width: 0;
+    border-radius: 20px;
+    color: black;
 }
 
