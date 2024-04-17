@@ -2,24 +2,29 @@ clearcode = document.getElementById('clearcode');
 clearcode.addEventListener("click", clearCode);
 clearspeler = document.getElementById('clearspelers');
 clearspeler.addEventListener("click", clearSpelers);
-clearspeler = document.getElementById('clearaarde');
-clearspeler.addEventListener("click", clearAarde);
+clearwater = document.getElementById('clearwater');
+clearwater.addEventListener("click", clearWater);
+clearaarde = document.getElementById('clearaarde');
+clearaarde.addEventListener("click", clearAarde);
+clearlucht = document.getElementById('clearlucht');
+clearlucht.addEventListener("click", clearLucht);
+clearvuur = document.getElementById('clearvuur');
+clearvuur.addEventListener("click", clearVuur);
 
-/*
-let fase;
-if(isNaN(parseInt(localStorage.getItem('fase'))) || parseInt(localStorage.getItem('fase')) === null){
-    fase = 1;
+function clearWater(){
+    localStorage.removeItem('waterwidth');
 }
-else{
-    fase = parseInt(localStorage.getItem('fase'));
-}
-document.getElementById('result').innerHTML = "fase: " + fase;
-*/
 function clearAarde(){
     localStorage.removeItem('aardewidth');
 }
+function clearLucht(){
+    localStorage.removeItem('luchtwidth');
+}
+function clearVuur(){
+    localStorage.removeItem('vuurwidth');
+}
 function clearCode(){
-    localStorage.removeItem('code');
+    localStorage.removeItem('codecracked');
 }
 
 function clearSpelers(){

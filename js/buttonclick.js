@@ -4,9 +4,10 @@ const codelijst = ["6","5","4","3","2","1"];
 let codecracked = [0,0,0,0,0,0];
 
 
-for(let i = 0; i < 6; i++){
-  if(localStorage.getItem("code")){
-    const cc = JSON.parse(localStorage.getItem("code"));
+
+if(localStorage.getItem("codecracked")){
+  const cc = JSON.parse(localStorage.getItem("codecracked"));
+  for(let i = 0; i < 6; i++){
     if(cc[i]){
       let id = 100 + i;
       let c = document.getElementById(id.toString());
@@ -15,17 +16,9 @@ for(let i = 0; i < 6; i++){
     }
   }
 }
-
-
-// fase uit localstorage
-/*let fase;
-if(isNaN(parseInt(localStorage.getItem('fase'))) || parseInt(localStorage.getItem('fase')) === null){
-  fase = 1;
-  localStorage.setItem('fase', fase.toString());
-}
 else{
-  fase =  parseInt(localStorage.getItem('fase'));
-}*/
+  localStorage.setItem('codecracked', JSON.stringify(codecracked));
+}
 
 //array QRcodes uit localstorage
 const storedArrayString = localStorage.getItem('myArray');
@@ -52,12 +45,6 @@ function scanned(qrCodeMessage){
       localStorage.setItem('permission', "1");
       scan = 1;
       const timeout = 2600;
-      //const storedArrayString = localStorage.getItem('myArray');
-      //let storedArray = JSON.parse(storedArrayString);
-      //const footer = document.getElementById("score");
-      //BOOLEAN VOOR EENMALIGE SCAN ENABLE
-      //const onetime = 0;
-      //const unique = 0; //met 'spw' ervoor
 
       if(qrCodeMessage.substring(0,6)==="player"){
         checkName(qrCodeMessage.substring(6,10));
@@ -65,50 +52,9 @@ function scanned(qrCodeMessage){
         scanner.style.visibility = "hidden";
       }
       else if(qrCodeMessage.substring(0,3)==="bar") {
-        fillLocation();
+        fillLocation(qrCodeMessage.substring(3,8));
       }
-        /*
-        let ID;
-        let code;
-        for(let i = 0; i < 6; i++){
-          ID = 100 + i;
-          code = document.getElementById(ID.toString());
-          code.innerHTML = codelijst[i];
-          code.style.backgroundColor = "#90FF20";
-          codecracked[i] = 1;
-          localStorage.setItem("code",JSON.stringify(codecracked));
-        }*/
-
-
-      /*
-      else if (storedArray.includes(qrCodeMessage) && onetime) {
-        footer.style.backgroundColor = "#EC2247";
-        setTimeout(function() {scan = 0; footer.style.backgroundColor = "#222222";}, 1000);
-      }
-      else {
-        if(onetime){
-          storedArray.push(qrCodeMessage);
-        }
-        console.log(`${storedArray} `);
-        const updatedArrayString = JSON.stringify(storedArray);
-        localStorage.setItem('myArray', updatedArrayString);
-        startTimer(timeout-600);
-        //localStorage.setItem('fase', fase.toString());
-        scanner.style.visibility = "hidden";
-
-      }
-       */
-
-  }
+          }
 }
-
-
-
-/*
-function playButton() {
-  minecraftbutton.play();
-}
-
-*/
 
 
