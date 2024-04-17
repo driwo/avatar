@@ -54,4 +54,5 @@ function digitcodeQRscanned(){
     codecracked = JSON.parse(localStorage.getItem("codecracked"));
     codecracked[4] = 1;
     localStorage.setItem("codecracked",JSON.stringify(codecracked));
+    checkCode();
 }

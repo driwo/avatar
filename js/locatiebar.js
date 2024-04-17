@@ -34,6 +34,7 @@ function fillLocation(locatie) {
       codecracked = JSON.parse(localStorage.getItem("codecracked"));
       codecracked[locaties.indexOf(locatie)] = 1;
       localStorage.setItem("codecracked",JSON.stringify(codecracked));
+      checkCode();
     }
     localStorage.setItem(locatie + 'width', width.toString());
     const locatieBar = document.getElementById(locatie + "bar");

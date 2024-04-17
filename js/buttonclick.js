@@ -4,22 +4,35 @@ const codelijst = ["6","5","4","3","2","1"];
 let codecracked = [0,0,0,0,0,0];
 
 
-
-if(localStorage.getItem("codecracked")){
-  const cc = JSON.parse(localStorage.getItem("codecracked"));
-  for(let i = 0; i < 6; i++){
-    if(cc[i]){
-      let id = 100 + i;
+function checkCode(){
+  if(localStorage.getItem("codecracked")){
+    const cc = JSON.parse(localStorage.getItem("codecracked"));
+    let total = 0;
+    for(let i = 0; i < 5; i++){
+      if(cc[i]){
+        total += 1;
+        let id = 100 + i;
+        let c = document.getElementById(id.toString());
+        c.innerHTML = codelijst[i];
+        c.style.backgroundColor = "#90FF20";
+      }
+    }
+    if(total===5){
+      let id = 105;
       let c = document.getElementById(id.toString());
-      c.innerHTML = codelijst[i];
+      c.innerHTML = codelijst[5];
       c.style.backgroundColor = "#90FF20";
+      codecracked = JSON.parse(localStorage.getItem("codecracked"));
+      codecracked[5] = 1;
+      localStorage.setItem("codecracked",JSON.stringify(codecracked));
     }
   }
-}
-else{
-  localStorage.setItem('codecracked', JSON.stringify(codecracked));
+  else{
+    localStorage.setItem('codecracked', JSON.stringify(codecracked));
+  }
 }
 
+checkCode();
 //array QRcodes uit localstorage
 const storedArrayString = localStorage.getItem('myArray');
 let storedArray;
