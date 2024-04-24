@@ -1,6 +1,6 @@
 let buttons = document.querySelectorAll('button');
 
-const codelijst = ["6","5","4","3","2","1"];
+const codelijst = ["4","2","4","0","7","2"];
 let codecracked = [0,0,0,0,0,0];
 
 

@@ -26,7 +26,7 @@ for(let i = 0; i < 4; i++){
 function fillLocation(locatie) {
   setTimeout(function() {
     let width =  parseInt(localStorage.getItem(locatie + 'width'));
-    if(width <= 90) width += 10;
+    if(width <= 98) width += 2;
     if(width===100){
       let code = document.getElementById("10" + locaties.indexOf(locatie).toString());
       code.innerHTML = codelijst[locaties.indexOf(locatie)];

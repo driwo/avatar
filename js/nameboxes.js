@@ -1,6 +1,6 @@
 const spelerlijst = ["w1","a1","l1","v1","w2","a2","l2","v2","w3","a3","l3","v3","w4","a4","l4","v4"];
 let hitlijst;
-const nrHit = 2;
+const nrHit = 14;
 let sum = 0;
 
 const storedA= localStorage.getItem('hitlijst');
